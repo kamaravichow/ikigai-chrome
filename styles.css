@@ -1,0 +1,338 @@
+/* 
+ * IKIGAI New Tab Page Styles
+ * A clean, modern new tab replacement for Chrome
+ */
+
+/* CSS Variables for consistent theming */
+:root {
+    /* Colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-white-15: rgba(255, 255, 255, 0.15);
+    --color-white-20: rgba(255, 255, 255, 0.2);
+    --color-white-30: rgba(255, 255, 255, 0.3);
+    --color-white-70: rgba(255, 255, 255, 0.7);
+    --color-white-80: rgba(255, 255, 255, 0.8);
+    --color-black-20: rgba(0, 0, 0, 0.2);
+    --color-black-30: rgba(0, 0, 0, 0.3);
+
+    /* Shadows */
+    --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    /* Blur effects */
+    --blur-light: blur(8px);
+    --blur-medium: blur(10px);
+
+    /* Fonts */
+    --font-primary: 'Nunito Sans', sans-serif;
+
+    /* Transitions */
+    --transition-fast: 0.2s;
+    --transition-medium: 0.3s;
+    --transition-slow: 0.5s;
+
+    /* Border radius */
+    --radius-small: 10px;
+    --radius-medium: 15px;
+    --radius-large: 24px;
+}
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-image: url('images/mohammad-alizade-CDu0x1Aiils-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--color-white);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== LAYOUT CONTAINERS ===== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    padding: 2rem;
+    background-color: var(--color-black-30);
+    backdrop-filter: var(--blur-medium);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-heavy);
+    margin-bottom: 2rem;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.ikigai-title {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    color: var(--color-white);
+    text-shadow: 0 2px 10px var(--color-black-30);
+    opacity: 0.9;
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.clock {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* ===== QUOTE SECTION ===== */
+.quote {
+    padding: 1.5rem;
+    background-color: var(--color-black-20);
+    border-radius: var(--radius-small);
+    margin-top: 2rem;
+}
+
+#quote-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+#quote-author {
+    font-size: 1rem;
+    opacity: 0.7;
+    text-align: right;
+}
+
+/* ===== SEARCH CONTAINER ===== */
+.search-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    padding: 0 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    transition: all var(--transition-slow);
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white-15);
+    backdrop-filter: var(--blur-light);
+    border-radius: var(--radius-large);
+    padding: 12px 16px;
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-medium);
+}
+
+.search-box:hover,
+.search-box:focus-within {
+    background-color: var(--color-white-20);
+    box-shadow: var(--shadow-medium);
+}
+
+.search-icon {
+    color: var(--color-white-70);
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-white);
+    font-size: 16px;
+    font-family: var(--font-primary);
+    padding: 0;
+}
+
+.search-input::placeholder {
+    color: var(--color-white-70);
+}
+
+/* ===== SEARCH SUGGESTIONS ===== */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white-15);
+    backdrop-filter: var(--blur-light);
+    border-radius: 18px 18px 18px 18px;
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity var(--transition-medium), transform var(--transition-medium);
+}
+
+.search-suggestions.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.suggestion-item {
+    padding: 12px 16px;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    text-align: left;
+    font-family: var(--font-primary);
+    font-size: 16px;
+}
+
+.suggestion-item:hover {
+    background-color: var(--color-white-15);
+}
+
+.suggestion-focused {
+    background-color: var(--color-white-20);
+}
+
+/* ===== FOOTER & PHOTO CREDIT ===== */
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    text-align: right;
+}
+
+.photo-credit {
+    font-size: 0.8rem;
+    color: var(--color-white-70);
+}
+
+.photo-credit a {
+    color: var(--color-white-80);
+    text-decoration: none;
+    transition: color var(--transition-medium);
+}
+
+.photo-credit a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+/* ===== ACCESSIBILITY HELPERS ===== */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ===== RESPONSIVE STATES ===== */
+/* Search active state - when input has content */
+.search-active .ikigai-title {
+    opacity: 0;
+    transform: translateY(-50px);
+    pointer-events: none;
+}
+
+.search-active .search-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+.search-suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-suggestions::-webkit-scrollbar-track {
+    background: var(--color-white-15);
+    border-radius: 10px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+    background: var(--color-white-20);
+    border-radius: 10px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb:hover {
+    background: var(--color-white-30);
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 768px) {
+    .ikigai-title {
+        font-size: 2.5rem;
+    }
+
+    .search-container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .ikigai-title {
+        font-size: 2rem;
+    }
+
+    .search-box {
+        padding: 10px 14px;
+    }
+}

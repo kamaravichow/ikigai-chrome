@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IKIGAI - A beautiful and simple new tab page">
+    <title>Home | IKIGAI</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="main-content">
+        <h1 class="ikigai-title">IKIGAI</h1>
+
+        <div class="search-container" role="search">
+            <form action="https://www.google.com/search" method="get" target="_blank">
+                <div class="search-box">
+                    <span class="material-icons search-icon" aria-hidden="true">search</span>
+                    <label for="search-input" class="visually-hidden">Search Google or type a URL</label>
+                    <input type="text" id="search-input" name="q" placeholder="Search Google or type in a URL"
+                        class="search-input" autocomplete="off" aria-label="Search Google or type a URL" autofocus>
+                    <div class="search-suggestions" role="listbox" aria-label="Search suggestions"></div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="photo-credit">
+            Photo by <a
+                href="https://unsplash.com/@mohamadaz?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+                target="_blank" rel="noopener noreferrer">Mohammad
+                Alizade</a> on <a
+                href="https://unsplash.com/photos/view-of-mountains-during-golden-hour-CDu0x1Aiils?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+                target="_blank" rel="noopener noreferrer">Unsplash</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="newtab.js"></script>
+</body>
+
+</html>
